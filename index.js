@@ -1,11 +1,10 @@
-// stroging object data into hero and monter varibles
-
 const hero = {
     elementId: "hero",
     name: "Wizard",
     avatar: "assets/wizard.png",
     health: 60,
     diceRoll: 3,
+    diceCount: 3
 }
 
 const monster = {
@@ -14,25 +13,28 @@ const monster = {
     avatar: "assets/orc.png",
     health: 10,
     diceRoll: 4,
+    diceCount: 1
 }
 
-
-//storing {elementId, name, avatar, health, diceRoll} into data which gets passed into our renderCharacter function
 function renderCharacter(data) {
-    const {elementId, name, avatar, health, diceRoll} = data
-    //inner HTML displaying to the DOM
-    document.getElementById(elementId).innerHTML =
+    const {elementId, name, avatar, health, diceRoll, diceCount } = data;
+
+let diceHtml = ''
+
+for (let i = 0; i< diceCount; i++){
+    diceHtml += `<div class="dice">6</div>`
+}
+    
+    document.getElementById(elementId).innerHTML = 
         `<div class="character-card">
-            <h4 class="name"> ${name} </h4>
+            <h4 class="name"> ${name} </h4> 
             <img class="avatar" src="${avatar}" />
             <div class="health">health: <b> ${health} </b></div>
             <div class="dice-container">
-                <div class="dice"> ${diceRoll} </div>
+                ${diceHtml}
             </div>
-        </div>`
+        </div>`   
 }
 
-
-//passing the function with varibles hero and monster
-renderCharacter(hero)
-renderCharacter(monster)
+renderCharacter(hero);
+renderCharacter(monster);
