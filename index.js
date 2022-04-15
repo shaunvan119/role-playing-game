@@ -45,15 +45,13 @@ function Character(data) {
     }  
 }
 
-//CHALLENGE
-// - Make the wizard and orc render
-// - check hint.md if you need a hand 
+
+const wizard = new Character(hero)
+const orc = new Character(monster)
+
 function render() {
     document.getElementById(wizard.elementId).innerHTML = wizard.getCharacterHtml()
     document.getElementById(orc.elementId).innerHTML = orc.getCharacterHtml()
 }
 
-
-const wizard = new Character(hero)
-const orc = new Character(monster)
 render()
