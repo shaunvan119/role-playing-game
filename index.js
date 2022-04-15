@@ -30,12 +30,8 @@ const monster = {
 
 //constructor function
 function Character(data) {
-    this.elementId = data.elementId;
-    this.name = data.name;
-    this.avatar = data.avatar;
-    this.health = data.health;
-    this.diceCount = data.diceCount;
-
+    
+    Object.assign(this, data)
     this.getCharacterHtml = function () {
         const { elementId, name, avatar, health, diceCount } = this;
         const diceHtml = getDiceHtml(diceCount)
