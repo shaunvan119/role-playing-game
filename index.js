@@ -30,27 +30,28 @@ const monster = {
 
 //constructor function
 function Character(data) {
-    this.elementId = data.elementId 
-    this.name = data.name
-    this.avatar = data.avatar
-    this.health = data.health
-    this.diceCount = data.diceCount
+    this.elementId = data.elementId;
+    this.name = data.name;
+    this.avatar = data.avatar;
+    this.health = data.health;
+    this.diceCount = data.diceCount;
+    this.getCharacterHtml = function(){
+        const { elementId, name, avatar, health, diceCount } = data;
+       const diceHtml = getDiceHtml(diceCount)
+
+        document.getElementById(elementId).innerHTML =
+            `<div class="character-card">
+                <h4 class="name"> ${name} </h4>
+                <img class="avatar" src="${avatar}" />
+                <div class="health">health: <b> ${health} </b></div>
+                <div class="dice-container">    
+                    ${diceHtml}
+                </div>
+            </div>`;
+        }
 }
 
-function renderCharacter(data) {
-    const {elementId, name, avatar, health, diceRoll, diceCount } = data;
-    const diceHtml = getDiceHtml(diceCount)
-    
-    document.getElementById(elementId).innerHTML = 
-        `<div class="character-card">
-            <h4 class="name"> ${name} </h4> 
-            <img class="avatar" src="${avatar}" />
-            <div class="health">health: <b> ${health} </b></div>
-            <div class="dice-container">
-                ${diceHtml}
-            </div>
-        </div>`   
-}
-
-renderCharacter(hero);
-renderCharacter(monster);
+const heroCharacter = new Character(hero)
+const monsterCharacter = new Character(monster)
+heroCharacter.getCharacterHtml()
+monsterCharacter.getCharacterHtml()
