@@ -1,14 +1,5 @@
-import characterData from "./data";
-
-
-function getDiceRollArray(diceCount) {
-    return new Array(diceCount).fill(0).map(function(){
-    return Math.floor(Math.random() * 6) + 1
-    });   
-}
-
-
-
+import charData from "./data.js";
+import getDiceRollArray from "./utils.js"
 
 
 
@@ -39,8 +30,8 @@ function Character(data) {
 }
 
 
-const wizard = new Character(characterData.hero)
-const orc = new Character(characterData.monster)
+const wizard = new Character(charData.hero)
+const orc = new Character(charData.monster)
 
 function render() {
     document.getElementById(wizard.elementId).innerHTML = wizard.getCharacterHtml()
