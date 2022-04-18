@@ -2,7 +2,11 @@ import charData from "./data.js";
 import Character from "./Character.js";
 
 function attack() {
+    wizard.getDiceHtml()
+    orc.getDiceHtml()
     render()
+    wizard.takeDamage()
+    orc.takeDamage()
 }
 
 
