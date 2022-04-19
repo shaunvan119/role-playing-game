@@ -5,7 +5,7 @@ let monstersArray = ["orc", "demon", "goblin"];
 
 function getNewMonster() {
     nextMonsterData = characterData[monstersArray.shift()]
-   
+    return nextMonsterData ? new Character(nextMonsterData) : {}
 }
 
 function attack() {
