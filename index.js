@@ -3,6 +3,11 @@ import Character from "./Character.js";
 
 let monstersArray = ["orc", "demon", "goblin"];
 
+function getNewMonster() {
+    nextMonsterData = characterData[monstersArray.shift()]
+   
+}
+
 function attack() {
     wizard.getDiceHtml()
     orc.getDiceHtml()
