@@ -17,7 +17,10 @@ function Character(data) {
         const totalAttackScore = attackScoreArray.reduce(function(total, num) {return total + num})
         this.health -= totalAttackScore
         if(this.health<=0){
+            this.dead = true
             this.health = 0
+
+            console.log(this.dead)
         }
     }
     
