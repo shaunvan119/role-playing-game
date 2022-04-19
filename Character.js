@@ -20,7 +20,6 @@ function Character(data) {
             this.dead = true
             this.health = 0
 
-            console.log(this.dead)
         }
     }
     
