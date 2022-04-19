@@ -45,5 +45,6 @@ function render() {
 document.getElementById("attack-button").addEventListener("click", attack)
 const wizard = new Character(charData.hero)
 const orc = new Character(charData.monster)
+let monster = getNewMonster()
 
 render()
